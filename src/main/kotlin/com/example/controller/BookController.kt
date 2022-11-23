@@ -1,7 +1,7 @@
 package com.example.controller
 
+import com.example.request.book.PostReq
 import io.ktor.server.application.*
-import io.ktor.server.locations.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
@@ -21,17 +21,12 @@ fun Route.bookController() {
 
     // Locations使用版
     // まだ実験的な処理らしい
-    get<GetReq> { req ->
-        call.respond("id = ${req.id}")
-    }
+//    get<LocationGetReq> { req ->
+//        call.respond("id = ${req.id}")
+//    }
 }
 
-@Location("/book2/{id}")
-data class GetReq(
-    val id: Long
-)
-
-class PostReq(
-    val name: String,
-    val price: Int,
-)
+//@Location("/book2/{id}")
+//data class LocationGetReq(
+//    val id: Long
+//)
