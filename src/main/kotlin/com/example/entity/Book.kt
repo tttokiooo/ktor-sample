@@ -1,6 +1,13 @@
 package com.example.entity
 
-class Book(
-    val id: Long,
-    val name: String,
-)
+import com.example.table.BookTable
+import org.jetbrains.exposed.dao.LongEntity
+import org.jetbrains.exposed.dao.LongEntityClass
+import org.jetbrains.exposed.dao.id.EntityID
+
+class Book(id: EntityID<Long>) : LongEntity(id) {
+    companion object : LongEntityClass<Book>(BookTable)
+
+    var name by BookTable.name
+    var price by BookTable.price
+}
