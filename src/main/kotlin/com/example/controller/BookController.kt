@@ -1,6 +1,7 @@
 package com.example.controller
 
 import com.example.request.book.PostReq
+import com.example.service.BookService
 import io.ktor.server.application.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
@@ -15,6 +16,8 @@ fun Route.bookController() {
         }
         post {
             val req = call.receive<PostReq>()
+            BookService.create(req)
+
             call.respond("name = ${req.name}、price = ${req.price}")
         }
     }
