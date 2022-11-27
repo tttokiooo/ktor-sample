@@ -22,4 +22,5 @@ fun Application.module() {
 
     install(Locations)
     configureRouting()
+    configureDatabase()
 }
